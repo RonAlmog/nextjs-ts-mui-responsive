@@ -21,7 +21,7 @@ import {
 
 type Props = {};
 
-const SpeedDialPage = (props: Props) => {
+const ButtonsPage = (props: Props) => {
   const [formats, setFormats] = useState<string[]>([]);
   const handleFormatChange = (
     e: React.MouseEvent,
@@ -119,4 +119,4 @@ const SpeedDialPage = (props: Props) => {
   );
 };
 
-export default SpeedDialPage;
+export default ButtonsPage;

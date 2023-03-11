@@ -1,4 +1,5 @@
 import Nav from "@/components/layout/Nav";
+import { Box } from "@mui/material";
 import Footer from "./Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -6,7 +7,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Nav />
-      <div>{children}</div>
+      <Box display="flex" minHeight="100vh" sx={{ mt: 3 }}>
+        {children}
+      </Box>
+
       <Footer />
     </>
   );
