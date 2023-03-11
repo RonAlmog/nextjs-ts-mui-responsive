@@ -18,10 +18,15 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Material UI - Next.js example in TypeScript
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          color="secondary.dark"
+        >
+          Material UI - Next.js example in TypeScriptz
         </Typography>
-        <Link href="/about" color="secondary">
+        <Link href="/about" color="secondary.light">
           Go to the about page
         </Link>
         <ProTip />
