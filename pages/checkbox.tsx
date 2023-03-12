@@ -5,16 +5,12 @@ import {
   FormControl,
   FormLabel,
   FormControlLabel,
-  RadioGroup,
-  Radio,
+  Switch,
   Typography,
   FormHelperText,
   Checkbox,
   FormGroup,
 } from "@mui/material";
-import CopyIcon from "@mui/icons-material/FileCopyOutlined";
-
-import EditIcon from "@mui/icons-material/Edit";
 import { Bookmark, BookmarkBorder } from "@mui/icons-material";
 
 type Props = {};
@@ -22,8 +18,10 @@ type Props = {};
 const CheckboxPage = (props: Props) => {
   const [accept, setAccept] = useState(false);
   const [skills, setSkills] = useState<string[]>([]);
+  const [dark, setDark] = useState(false);
 
   console.log("skills", skills);
+  console.log("dark", dark);
   const handleSkillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const index = skills.indexOf(e.target.value);
     if (index === -1) {
@@ -97,6 +95,17 @@ const CheckboxPage = (props: Props) => {
               />
             </FormGroup>
           </FormControl>
+        </Box>
+        <Box>
+          <FormControlLabel
+            label="Dark"
+            control={
+              <Switch
+                checked={dark}
+                onChange={(e) => setDark(e.target.checked)}
+              />
+            }
+          />
         </Box>
       </Box>
     </Layout>
