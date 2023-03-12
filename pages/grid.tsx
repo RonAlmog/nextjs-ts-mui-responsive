@@ -1,6 +1,18 @@
 import Layout from "@/components/layout/Layout";
 import React, { useState } from "react";
-import { Box, Divider, Grid, Paper, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Divider,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { margin } from "@mui/system";
 
 type Props = {};
@@ -32,6 +44,30 @@ const GridPage = (props: Props) => {
           </Grid>
         </Grid>
       </Paper>
+      <Box width="300px">
+        <Card>
+          <CardMedia
+            component="img"
+            height="140"
+            image="https://source.unsplash.com/random"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              React
+            </Typography>
+            <Typography gutterBottom variant="body2">
+              Next, we define a new service called api which builds the local
+              Dockerfile with target production and names it quotes-api. After
+              that, it has a depends_on definition on the db container which is
+              our Postgres container.
+            </Typography>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </CardContent>
+        </Card>
+      </Box>
     </Layout>
   );
 };
