@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Nav />
-      <Box display="flex" minHeight="100vh" sx={{ mt: 3 }}>
+      <Box minHeight="100vh" sx={{ mt: 3 }}>
         {children}
       </Box>
 
