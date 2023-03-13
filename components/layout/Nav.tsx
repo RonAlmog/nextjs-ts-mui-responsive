@@ -14,13 +14,19 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
 const pages = ["Products", "Pricing", "Blog"];
+const pages2 = ["Productz", "Pricy", "Blocha"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pricing = ["Free plan", "Professional", "Enterprise"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
+
+  const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(
     null
   );
 
@@ -31,6 +37,10 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
 
+  const handleOpenPriceMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElPrice(event.currentTarget);
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -39,10 +49,14 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const handleClosePricingMenu = () => {
+    setAnchorElPrice(null);
+  };
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* for large */}
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -62,6 +76,7 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
 
+          {/* for mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -91,7 +106,7 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {pages2.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
@@ -117,6 +132,7 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
+          {/* for large  */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -127,8 +143,29 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
+            <Button
+              id="price-menu-button"
+              sx={{ my: 2, color: "white", display: "block" }}
+              onClick={handleOpenPriceMenu}
+            >
+              Pricing
+            </Button>
+            <Menu
+              id="menu-pricing"
+              open={Boolean(anchorElPrice)}
+              anchorEl={anchorElPrice}
+              sx={{ mt: "20px" }}
+              onClose={handleClosePricingMenu}
+            >
+              {pricing.map((price) => (
+                <MenuItem key={price} onClick={handleClosePricingMenu}>
+                  <Typography textAlign="center">{price}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
 
+          {/* both large and mobile */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
