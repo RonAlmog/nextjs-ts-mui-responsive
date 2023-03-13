@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
 const pages = ["Products", "Pricing", "Blog"];
 const pages2 = ["Productz", "Pricy", "Blocha"];
@@ -145,8 +146,15 @@ function ResponsiveAppBar() {
             ))}
             <Button
               id="price-menu-button"
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, color: "white" }}
               onClick={handleOpenPriceMenu}
+              endIcon={
+                Boolean(anchorElPrice) ? (
+                  <KeyboardArrowUp />
+                ) : (
+                  <KeyboardArrowDown />
+                )
+              }
             >
               Pricing
             </Button>
