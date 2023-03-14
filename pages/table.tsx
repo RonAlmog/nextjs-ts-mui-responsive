@@ -17,7 +17,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 type Props = {};
 
-const SpeedDialPage = (props: Props) => {
+const TablePage = (props: Props) => {
   return (
     <Layout>
       <TableContainer component={Paper}>
@@ -129,4 +129,4 @@ const tableData = [
   },
 ];
 
-export default SpeedDialPage;
+export default TablePage;
